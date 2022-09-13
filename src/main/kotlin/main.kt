@@ -1,6 +1,5 @@
-
 class Stack<E> {
-    private val minCapacityIncrement = 12
+    private val minCapIncrement = 12
 
     private var elements: Array<Any?>
     private var size = 0
@@ -16,8 +15,8 @@ class Stack<E> {
 
     fun push(element: E) {
         if (size == elements.size) {
-            val newArray = arrayOfNulls<Any>(size + if (size < minCapacityIncrement / 2)
-                minCapacityIncrement
+            val newArray = arrayOfNulls<Any>(size + if (size < minCapIncrement / 2)
+                minCapIncrement
             else
                 size shr 1)
             System.arraycopy(elements, 0, newArray, 0, size)
@@ -30,7 +29,7 @@ class Stack<E> {
         val newSize = size + newElements.size
         if (elements.size < newSize) {
             // New sizing can be of any logic as per requirement
-            val newArray = arrayOfNulls<Any>(newSize + minCapacityIncrement)
+            val newArray = arrayOfNulls<Any>(newSize + minCapIncrement)
             System.arraycopy(elements, 0, newArray, 0, size)
             elements = newArray
         }
